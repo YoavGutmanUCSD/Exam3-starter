@@ -32,6 +32,7 @@ public class MaxHeap<K, V> {
             entries.add(new HeapEntry<K, V>(key, value));
         }
         else {
+            current = this.entries.get(index);
             entries.set(index, new HeapEntry<K, V>(key, value));
             refactor(index, current);
         }

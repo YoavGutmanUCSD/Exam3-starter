@@ -115,7 +115,7 @@ public class MaxHeap<K, V> {
             toReturn = String.format("%s%s, ", toReturn, entries.get(i).getKey());
         }
         int lastIndex = this.entries.size()-1;
-        String lastKey = entries.get(lastIndex.getKey());
+        String lastKey = entries.get(lastIndex).getKey();
         return String.format("%s%s]", toReturn, lastKey);
     }
 }

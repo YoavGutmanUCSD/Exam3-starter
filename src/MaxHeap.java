@@ -28,7 +28,12 @@ public class MaxHeap<K, V> {
             else if(comparison == 1) {index *= 2;}
             else if(comparison == -1) {index = index * 2 + 1;}
         }
-        entries.set(index, new HeapEntry<K, V>(key, value));
+        if(index >= entries.size()){
+            entries.add(new HeapEntry<K, V>(key, value));
+        }
+        else {
+            entries.set(index, new HeapEntry<K, V>(key, value));
+        }
     }
 
     public HeapEntry<K,V> peek() {

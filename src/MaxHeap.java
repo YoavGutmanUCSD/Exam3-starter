@@ -94,10 +94,13 @@ public class MaxHeap<K, V> {
     }
     // this version of refactor is intended to insert a value
     private void refactor(int index, HeapEntry<K,V> relocateTarget){
-        System.out.format("Refactor iteration running on index %s, using object with values (%s, %s)\n", index, relocateTarget.getKey(), relocateTarget.getValue());
+        // System.out.format("Refactor iteration running on index %s, using object with values (%s, %s)\n", index, relocateTarget.getKey(), relocateTarget.getValue());
 
         int leftIndex = index*2;
         int rightIndex = leftIndex+1;
+        if(relocateTarget == null){
+            return;
+        }
         if(leftIndex >= entries.size()) {
             entries.add(relocateTarget);
             return;

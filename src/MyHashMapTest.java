@@ -28,7 +28,7 @@ public class MyHashMapTest {
             testHeap.add("a", 5);
             testHeap.add("b", 7);
             testHeap.add("c", 1);
-            assertEquals("[a, b, c]", testHeap.toString());
+            assertEquals("[c, a, b]", testHeap.toString());
         }
 
         @Test
@@ -36,7 +36,7 @@ public class MyHashMapTest {
             testHeap.add("b", 7);
             testHeap.add("a", 5);
             testHeap.add("c", 1);
-            assertEquals("[a, b, c]", testHeap.toString());
+            assertEquals("[c, a, b]", testHeap.toString());
         }
 
 	//Write testcase for checking max score of 2 sections

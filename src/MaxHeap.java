@@ -111,10 +111,12 @@ public class MaxHeap<K, V> {
 
     public String toString(){
         String toReturn = "[";
-        for(int i = 1; i < this.entries.size(); i++){
+        for(int i = 1; i < this.entries.size()-1; i++){
             toReturn = String.format("%s%s, ", toReturn, entries.get(i).getKey());
         }
-        return String.format("%s]", toReturn);
+        int lastIndex = this.entries.size()-1;
+        String lastKey = entries.get(lastIndex.getKey());
+        return String.format("%s%s]", toReturn, lastKey);
     }
 }
 

@@ -74,6 +74,7 @@ public class MyHashMapTest {
             testHeap.add("e", 5);
             testHeap.add("g", 5);
             HeapEntry<String,Integer> removed = testHeap.remove();
+            System.out.println(testHeap.toString());
             assertTrue(testHeap.sanityCheck());
             assertEquals(removed.getKey(), "z");
         }
@@ -87,7 +88,7 @@ class TestComp implements Comparator<String> {
     public int compare(String e, String f){
         // String key1 = (String) e.getKey();
         // String key2 = (String) f.getKey();
-        System.out.format("Difference between %s and %s is %s\n", e, f, e.compareTo(f));
+        // System.out.format("Difference between %s and %s is %s\n", e, f, e.compareTo(f));
         return e.compareTo(f);
     }
 }

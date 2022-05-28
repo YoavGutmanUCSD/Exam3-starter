@@ -75,7 +75,7 @@ public class MaxHeap<K, V> {
     }
     // this refactor is intended to fix a branch that might be broken
     private void refactor(int index){
-        System.out.format("Refactor iteration running on index %s", index);
+        // System.out.format("Refactor iteration running on index %s", index);
         int leftIndex = index*2;
         int rightIndex = leftIndex+1;
         HeapEntry<K, V> leftEntry = entries.get(leftIndex);

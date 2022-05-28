@@ -75,7 +75,7 @@ public class MyHashMapTest {
             testHeap.add("g", 5);
             HeapEntry<String,Integer> removed = testHeap.remove();
             assertTrue(testHeap.sanityCheck());
-            assertEquals(removed, "z");
+            assertEquals(removed.getKey(), "z");
         }
 	//Write testcase for checking max score of 2 sections
 

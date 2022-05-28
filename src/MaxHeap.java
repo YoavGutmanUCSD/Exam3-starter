@@ -22,6 +22,7 @@ public class MaxHeap<K, V> {
         HeapEntry<K,V> temp;
         if(this.entries.size() == 1){
             entries.add(current);
+            return;
         }
         int comparison = compare(entries.get(1), current);
         if(comparison < 0){
@@ -60,8 +61,8 @@ public class MaxHeap<K, V> {
 
     public HeapEntry<K,V> remove() {
         //Method to remove the max element in the heap, remember to satisfy max heap Property
-        HeapEntry<K, V> toReturn = this.entries.get(1);
-        this.entries.set(1, null);
+        HeapEntry<K, V> toReturn = this.entries.remove(1);
+        // this.entries.set(1, null);
         refactor(1);
         return toReturn;
     }

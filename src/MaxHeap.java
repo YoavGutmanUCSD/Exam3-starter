@@ -18,25 +18,39 @@ public class MaxHeap<K, V> {
 
     public void add(K key, V value){
         // Method to add the key value pair in the heap, remember to satisfy max heap Property
-        int index = 1;
-        int comparison;
-        HeapEntry<K,V> current;
-        while(index < entries.size()){
-            current = this.entries.get(index);
-            comparison = compare(current.getKey(), key);
-            System.out.format("Add iteration at index %s, using current object with values (%s, %s) and comparison value of %s.\n", index, current.getKey(), current.getValue(), comparison);
-            if(comparison == 0){break;}
-            else if(comparison > 0) {index *= 2;}
-            else if(comparison < 0) {index = index * 2 + 1;}
+        HeapEntry<K,V> current = new HeapEntry<K,V>(key, value);
+        HeapEntry<K,V> temp;
+        if(this.entries.size() == 1){
+            entries.add(current);
         }
-        if(index >= entries.size()){
-            entries.add(new HeapEntry<K, V>(key, value));
+        int comparison = compare(entries.get(1), current);
+        if(comparison < 0){
+            temp = entries.get(1);
+            entries.set(1, current);
+            refactor(1, temp);
         }
         else {
-            current = this.entries.get(index);
-            entries.set(index, new HeapEntry<K, V>(key, value));
-            refactor(index, current);
+            refactor(1, current);
         }
+        // int index = 1;
+        // int comparison;
+        // HeapEntry<K,V> current;
+        // while(index < entries.size()){
+        //     current = this.entries.get(index);
+        //     comparison = compare(current.getKey(), key);
+        //     System.out.format("Add iteration at index %s, using current object with values (%s, %s) and comparison value of %s.\n", index, current.getKey(), current.getValue(), comparison);
+        //     if(comparison == 0){break;}
+        //     else if(comparison > 0) {index *= 2;}
+        //     else if(comparison < 0) {index = index * 2 + 1;}
+        // }
+        // if(index >= entries.size()){
+        //     entries.add(new HeapEntry<K, V>(key, value));
+        // }
+        // else {
+        //     current = this.entries.get(index);
+        //     entries.set(index, new HeapEntry<K, V>(key, value));
+        //     refactor(index, current);
+        // }
     }
 
     public HeapEntry<K,V> peek() {
@@ -68,11 +82,11 @@ public class MaxHeap<K, V> {
         HeapEntry<K, V> current = this.entries.get(index);
         int compareLeft = compare(current, leftEntry);
         int compareRight = compare(current, rightEntry);
-        if(compareLeft > 0){
+        if(compareLeft < 0){
             swap(leftIndex, index);
             refactor(leftIndex);
         }
-        if(compareRight > 0) {
+        if(compareRight < 0) {
             swap(rightIndex, index);
             refactor(rightIndex);
         }
@@ -84,7 +98,6 @@ public class MaxHeap<K, V> {
         int rightIndex = leftIndex+1;
         HeapEntry<K,V> leftEntry = entries.get(leftIndex);
         HeapEntry<K,V> rightEntry = entries.get(rightIndex);
-        // HeapEntry<K,V> head = entries.get(index);
         int compareLeft = compare(relocateTarget, leftEntry);
         int compareRight = compare(relocateTarget, rightEntry);
         if(compareLeft > 0){

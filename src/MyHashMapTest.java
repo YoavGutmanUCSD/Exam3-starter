@@ -28,7 +28,7 @@ public class MyHashMapTest {
             testHeap.add("a", 5);
             testHeap.add("b", 7);
             testHeap.add("c", 1);
-            assertEquals("[c, a, b]", testHeap.toString());
+            assertEquals("[c, b, a]", testHeap.toString());
         }
 
         @Test
@@ -36,7 +36,7 @@ public class MyHashMapTest {
             testHeap.add("b", 7);
             testHeap.add("a", 5);
             testHeap.add("c", 1);
-            assertEquals("[c, a, b]", testHeap.toString());
+            assertEquals("[c, b, a]", testHeap.toString());
         }
 
         @Test
@@ -45,6 +45,18 @@ public class MyHashMapTest {
             testHeap.add("a", 5);
             testHeap.add("c", 1);
             testHeap.add("asetd", 5);
+            testHeap.add("d", 5);
+            testHeap.add("f", 5);
+            testHeap.add("e", 5);
+            testHeap.add("g", 5);
+            assertEquals("[asetd, f, g, ]", testHeap.toString());
+        }
+        @Test
+        public void testAddHeapMaximumMiddle(){
+            testHeap.add("b", 7);
+            testHeap.add("a", 5);
+            testHeap.add("c", 1);
+            testHeap.add("z", 5);
             testHeap.add("d", 5);
             testHeap.add("f", 5);
             testHeap.add("e", 5);

@@ -34,39 +34,71 @@ public class MyHashMap<K, V> implements DefaultMap<K, V> {
         this.size = 0;
         this.sections = new Character[initialCapacity];
         this.buckets = new ArrayList(initialCapacity);
+        this.myComparator = myComparator;
         //constrcutor for the hashMap
     }
 
     @Override
     public boolean put(K key, V value) throws IllegalArgumentException {
-        HashMapEntry entry = new HashMapEntry<K,V>(key, value);
-        int hashCode = Math.abs(Objects.hashCode(key));
         //Method to add the key value pair to the hashMap
-        int index = hashCode % buckets.size();
-
+        if(key == null){
+            throw new IllegalArgumentException(ILLEGAL_ARG_NULL_KEY);
+        }
+        if(value == null){
+            return false;
+        }
+        HashMapEntry entry = new HashMapEntry<K,V>(key, value);
+        int index = hash(key);
+        if(buckets.get(index) == null){
+            MaxHeap<K,V> bucket = new MaxHeap<K,V>(4, myComparator);
+            bucket.add(key, value);
+            buckets.set(index, bucket);
+            return true;
+        }
+        MaxHeap bucket = buckets.get(index);
+        bucket.add(key, value);
+        buckets.set(index, bucket);
+        this.size++;
+        return true;
     }
 
 
 
     @Override
     public V get(K key) throws IllegalArgumentException {
-
         //Method to get the value of given key
+        if(key == null){
+            throw new IllegalArgumentException(ILLEGAL_ARG_NULL_KEY);
+        }
+        int index = hash(key);
+        return this.buckets.get(index).peek().getValue();
     }
 
     @Override
     public boolean containsKey(K key) throws IllegalArgumentException {
         //Method to check if key is present
+        if(key == null){
+            return false;
+        }
+        return get(key) != null;
     }
 
     @Override
     public int size() {
         //Method to get size of the hashMap
+        return this.size;
     }
 
     @Override
     public boolean isEmpty() {
         //Method to check if hashMap is empty
+        return size == 0;
+    }
+    private int hash(K key){
+        if(key == null){
+            return false;
+        }
+        return Math.abs(Objects.hashCode(key)) % buckets.size();
     }
 
     protected static class HashMapEntry<K, V> implements DefaultMap.Entry<K, V> {

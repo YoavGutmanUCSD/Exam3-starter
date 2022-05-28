@@ -3,7 +3,7 @@ hash_map="src/DefaultMap.java src/MyHashMap.java src/MaxHeap.java src/MyHashMapT
 heap_only="src/DefaultMap.java src/MaxHeap.java src/MyHashMapTest.java"
 file_student="src/FileReader.java src/Student.java"
 javac -cp ${classpath} -d classes/ $heap_only # $hash_map # $file_student
-java -cp $classpath MyHashMapTest
+java -cp $classpath org.junit.runner.JUnitCore MyHashMapTest
 # javac -cp ${classpath} -d classes/ src/ArrayListADT.java
 # javac -cp ${classpath} -d classes/ src/CircularArrayList.java
 # javac -cp ${classpath} -d classes/ src/CircularArrayListTest.jav

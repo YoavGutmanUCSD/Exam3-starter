@@ -37,11 +37,11 @@ public class MyHashMapTest {
 	
 }
 
-class TestComp implements Comparator<HeapEntry<String, Integer>> {
+class TestComp implements Comparator<String> {
     @Override
-    public int compare(HeapEntry e, HeapEntry f){
-        String key1 = (String) e.getKey();
-        String key2 = (String) f.getKey();
-        return key1.compareTo(key2);
+    public int compare(String e, String f){
+        // String key1 = (String) e.getKey();
+        // String key2 = (String) f.getKey();
+        return e.compareTo(f);
     }
 }

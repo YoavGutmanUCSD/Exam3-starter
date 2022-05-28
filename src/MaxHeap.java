@@ -112,7 +112,7 @@ public class MaxHeap<K, V> {
     public String toString(){
         String toReturn = "[";
         for(int i = 1; i < this.entries.size(); i++){
-            toReturn = String.format("%s, %s", toReturn, entries.get(i).getKey());
+            toReturn = String.format("%s%s, ", toReturn, entries.get(i).getKey());
         }
         return String.format("%s]", toReturn);
     }

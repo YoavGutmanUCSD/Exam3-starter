@@ -31,6 +31,13 @@ public class MyHashMapTest {
             assertEquals("[a, b, c]", testHeap.toString());
         }
 
+        @Test
+        public void testAddHeapOutOfOrder(){
+            testHeap.add("b", 7);
+            testHeap.add("a", 5);
+            testHeap.add("c", 1);
+            assertEquals("[a, b, c]", testHeap.toString());
+        }
 
 	//Write testcase for checking max score of 2 sections
 

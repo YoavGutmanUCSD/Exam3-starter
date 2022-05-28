@@ -98,7 +98,10 @@ public class MaxHeap<K, V> {
 
         HeapEntry<K,V> leftEntryOperation = operateLeft(index, relocateTarget);
         HeapEntry<K,V> rightEntryOperation = operateRight(index, relocateTarget);
-        if(leftEntryOperation != null){
+        if(index >= entries.size()){
+            entries.add(relocateTarget);
+        }
+        else if(leftEntryOperation != null){
             refactor(index*2, leftEntryOperation);
         }
         else if(rightEntryOperation != null) {

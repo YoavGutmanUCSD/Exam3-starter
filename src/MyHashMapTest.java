@@ -49,7 +49,7 @@ public class MyHashMapTest {
             testHeap.add("f", 5);
             testHeap.add("e", 5);
             testHeap.add("g", 5);
-            assertEquals("[asetd, f, g, ]", testHeap.toString());
+            assertEquals("[g, f, asetd, e, a, b, c, d]", testHeap.toString());
         }
         @Test
         public void testAddHeapMaximumMiddle(){
@@ -61,7 +61,21 @@ public class MyHashMapTest {
             testHeap.add("f", 5);
             testHeap.add("e", 5);
             testHeap.add("g", 5);
-            assertEquals("[asetd, f, g, ]", testHeap.toString());
+            assertEquals("[z, g, e, f, b, c, d]", testHeap.toString());
+        }
+        @Test
+        public void testRemoveHeapMaximumMiddle(){
+            testHeap.add("b", 7);
+            testHeap.add("a", 5);
+            testHeap.add("c", 1);
+            testHeap.add("z", 5);
+            testHeap.add("d", 5);
+            testHeap.add("f", 5);
+            testHeap.add("e", 5);
+            testHeap.add("g", 5);
+            HeapEntry<String,Integer> removed = testHeap.remove();
+            assertTrue(testHeap.sanityCheck());
+            assertEquals(removed, "z");
         }
 	//Write testcase for checking max score of 2 sections
 

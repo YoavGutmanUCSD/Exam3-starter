@@ -33,6 +33,7 @@ public class MaxHeap<K, V> {
         }
         else {
             entries.set(index, new HeapEntry<K, V>(key, value));
+            refactor(index, current);
         }
     }
 
@@ -57,6 +58,7 @@ public class MaxHeap<K, V> {
     }
     // this refactor is intended to fix a branch that might be broken
     private void refactor(int index){
+        System.out.format("Refactor iteration running on index %s", index);
         int leftIndex = index*2;
         int rightIndex = leftIndex+1;
         HeapEntry<K, V> leftEntry = entries.get(leftIndex);
@@ -75,6 +77,7 @@ public class MaxHeap<K, V> {
     }
     // this version of refactor is intended to insert a value
     private void refactor(int index, HeapEntry<K,V> relocateTarget){
+        System.out.format("Refactor iteration running on index %s, using object with values (%s, %s)", index, relocateTarget.getKey(), relocateTarget.getValue());
         int leftIndex = index*2;
         int rightIndex = leftIndex+1;
         HeapEntry<K,V> leftEntry = entries.get(leftIndex);

@@ -10,7 +10,7 @@ import org.junit.*;
 public class MyHashMapTest {
 	
 	// private FileReader filereader;
-	// private DefaultMap<Integer, Student> testMap; // use this for basic tests
+	private DefaultMap<Integer, Student> testMap; // use this for basic tests
         private MaxHeap<String, Integer> testHeap;
 
 	// @Before
@@ -79,6 +79,10 @@ public class MyHashMapTest {
             assertEquals(removed.getKey(), "z");
         }
 	//Write testcase for checking max score of 2 sections
+        @Test
+        public void testPutInHashMap(){
+
+        }
 
 	
 }

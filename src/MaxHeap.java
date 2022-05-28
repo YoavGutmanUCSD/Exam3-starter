@@ -96,24 +96,25 @@ public class MaxHeap<K, V> {
     private void refactor(int index, HeapEntry<K,V> relocateTarget){
         System.out.format("Refactor iteration running on index %s, using object with values (%s, %s)\n", index, relocateTarget.getKey(), relocateTarget.getValue());
 
-        HeapEntry<K,V> leftEntryOperation = operateLeft(index, relocateTarget);
-        HeapEntry<K,V> rightEntryOperation = operateRight(index, relocateTarget);
-        if(index >= entries.size()){
+        int leftIndex = index*2;
+        int rightIndex = leftIndex+1;
+        if(leftIndex >= entries.size()) {
             entries.add(relocateTarget);
+            return;
         }
-        else if(leftEntryOperation != null){
-            refactor(index*2, leftEntryOperation);
+        if(rightIndex >= entries.size()){
+            refactor(leftIndex, operateOnIndex(leftIndex, relocateTarget));
         }
-        else if(rightEntryOperation != null) {
-            refactor(index*2 + 1, rightEntryOperation);
+        HeapEntry<K,V> leftOperate = operateOnIndex(leftIndex, relocateTarget);
+        if(leftOperate != null){
+            refactor(leftIndex, leftOperate);
         }
-        return;
-        // int leftIndex = index*2;
-        // int rightIndex = leftIndex+1;
-        // if(leftIndex >= entries.size() || rightIndex >= entries.size()) {
-        //     entries.add(relocateTarget);
-        //     return;
-        // }
+        else {
+            HeapEntry<K,V> rightOperate = operateOnIndex(rightIndex, relocateTarget);
+            if(rightOperate != null){
+                refactor(rightIndex, rightOperate);
+            }
+        }
         // HeapEntry<K,V> leftEntry = entries.get(leftIndex);
         // HeapEntry<K,V> rightEntry = entries.get(rightIndex);
         // int compareLeft = compare(relocateTarget, leftEntry);
@@ -128,36 +129,49 @@ public class MaxHeap<K, V> {
         //     this.entries.get(index);
         //     refactor(rightIndex, nextRelocateTarget);
         // }
-        // // refactor()
+        // refactor()
     }
-    private HeapEntry<K,V> operateLeft(int index, HeapEntry<K,V> relocateTarget){
-        int leftIndex = index*2;
-        if(leftIndex >= entries.size()){
+    private HeapEntry<K,V> operateOnIndex(int index, HeapEntry<K,V> relocateTarget){
+        if(index >= entries.size()){
             return null;
         }
-        HeapEntry<K,V> leftEntry = entries.get(leftIndex);
-        int comparison = compare(leftEntry, relocateTarget);
+        HeapEntry<K,V> entry = entries.get(index);
+        int comparison = compare(entry, relocateTarget);
         if(comparison < 0){
-            HeapEntry<K,V> newRelocateTarget = entries.get(leftIndex);
-            entries.set(leftIndex, relocateTarget);
+            HeapEntry<K,V> newRelocateTarget = entries.get(index);
+            entries.set(index, relocateTarget);
             return newRelocateTarget;
         }
         return null;
     }
-    private HeapEntry<K,V> operateRight(int index, HeapEntry<K,V> relocateTarget){
-        int rightIndex = index*2+1;
-        if(rightIndex >= entries.size()){
-            return null;
-        }
-        HeapEntry<K,V> rightEntry = entries.get(rightIndex);
-        int comparison = compare(rightEntry, relocateTarget);
-        if(comparison < 0){
-            HeapEntry<K,V> newRelocateTarget = entries.get(rightIndex);
-            entries.set(rightIndex, relocateTarget);
-            return newRelocateTarget;
-        }
-        return null;
-    }
+    // private HeapEntry<K,V> operateLeft(int index, HeapEntry<K,V> relocateTarget){
+    //     int leftIndex = index*2;
+    //     if(leftIndex >= entries.size()){
+    //         return null;
+    //     }
+    //     HeapEntry<K,V> leftEntry = entries.get(leftIndex);
+    //     int comparison = compare(leftEntry, relocateTarget);
+    //     if(comparison < 0){
+    //         HeapEntry<K,V> newRelocateTarget = entries.get(leftIndex);
+    //         entries.set(leftIndex, relocateTarget);
+    //         return newRelocateTarget;
+    //     }
+    //     return null;
+    // }
+    // private HeapEntry<K,V> operateRight(int index, HeapEntry<K,V> relocateTarget){
+    //     int rightIndex = index*2+1;
+    //     if(rightIndex >= entries.size()){
+    //         return null;
+    //     }
+    //     HeapEntry<K,V> rightEntry = entries.get(rightIndex);
+    //     int comparison = compare(rightEntry, relocateTarget);
+    //     if(comparison < 0){
+    //         HeapEntry<K,V> newRelocateTarget = entries.get(rightIndex);
+    //         entries.set(rightIndex, relocateTarget);
+    //         return newRelocateTarget;
+    //     }
+    //     return null;
+    // }
     // private void refactorLeft(int index, HeapEntry<K,V> relocateTarget){
     //     System.out.format("Refactor iteration running on index %s, using object with values (%s, %s)\n", index, relocateTarget.getKey(), relocateTarget.getValue());
     //     int leftIndex = index*2;

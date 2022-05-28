@@ -98,6 +98,7 @@ public class MaxHeap<K, V> {
         int rightIndex = leftIndex+1;
         if(leftIndex >= entries.size() || rightIndex >= entries.size()) {
             entries.add(relocateTarget);
+            return;
         }
         HeapEntry<K,V> leftEntry = entries.get(leftIndex);
         HeapEntry<K,V> rightEntry = entries.get(rightIndex);

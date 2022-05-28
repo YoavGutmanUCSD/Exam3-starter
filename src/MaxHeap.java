@@ -22,9 +22,9 @@ public class MaxHeap<K, V> {
         int comparison;
         HeapEntry<K,V> current;
         while(index < entries.size()){
-            System.out.format("Add iteration at index %s\n", index);
             current = this.entries.get(index);
             comparison = compare(current.getKey(), key);
+            System.out.format("Add iteration at index %s, using current object with values (%s, %s) and comparison value of %s.\n", index, current.getKey(), current.getValue(), comparison);
             if(comparison == 0){break;}
             else if(comparison == 1) {index *= 2;}
             else if(comparison == -1) {index = index * 2 + 1;}

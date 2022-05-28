@@ -10,7 +10,7 @@ import org.junit.*;
 public class MyHashMapTest {
 	
 	// private FileReader filereader;
-	private DefaultMap<Integer, Student> testMap; // use this for basic tests
+	// private DefaultMap<Integer, Student> testMap; // use this for basic tests
         private MaxHeap<String, Integer> testHeap;
 
 	// @Before

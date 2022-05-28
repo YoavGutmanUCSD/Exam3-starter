@@ -33,25 +33,6 @@ public class MaxHeap<K, V> {
         else {
             refactor(1, current);
         }
-        // int index = 1;
-        // int comparison;
-        // HeapEntry<K,V> current;
-        // while(index < entries.size()){
-        //     current = this.entries.get(index);
-        //     comparison = compare(current.getKey(), key);
-        //     System.out.format("Add iteration at index %s, using current object with values (%s, %s) and comparison value of %s.\n", index, current.getKey(), current.getValue(), comparison);
-        //     if(comparison == 0){break;}
-        //     else if(comparison > 0) {index *= 2;}
-        //     else if(comparison < 0) {index = index * 2 + 1;}
-        // }
-        // if(index >= entries.size()){
-        //     entries.add(new HeapEntry<K, V>(key, value));
-        // }
-        // else {
-        //     current = this.entries.get(index);
-        //     entries.set(index, new HeapEntry<K, V>(key, value));
-        //     refactor(index, current);
-        // }
     }
 
     public HeapEntry<K,V> peek() {
@@ -118,21 +99,6 @@ public class MaxHeap<K, V> {
                 refactor(rightIndex, rightOperate);
             }
         }
-        // HeapEntry<K,V> leftEntry = entries.get(leftIndex);
-        // HeapEntry<K,V> rightEntry = entries.get(rightIndex);
-        // int compareLeft = compare(relocateTarget, leftEntry);
-        // int compareRight = compare(relocateTarget, rightEntry);
-        // if(compareLeft > 0){
-        //     HeapEntry<K,V> nextRelocateTarget = this.entries.get(leftIndex);
-        //     this.entries.get(index);
-        //     refactor(leftIndex, nextRelocateTarget);
-        // }
-        // if(compareRight > 0) {
-        //     HeapEntry<K,V> nextRelocateTarget = this.entries.get(rightIndex);
-        //     this.entries.get(index);
-        //     refactor(rightIndex, nextRelocateTarget);
-        // }
-        // refactor()
     }
     private HeapEntry<K,V> operateOnIndex(int index, HeapEntry<K,V> relocateTarget){
         if(index >= entries.size()){

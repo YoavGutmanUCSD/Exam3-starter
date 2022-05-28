@@ -23,7 +23,7 @@ public class MaxHeap<K, V> {
         HeapEntry<K,V> current;
         while(index < entries.size()){
             current = this.entries.get(index);
-            comparison = comparator.compare(current.getKey(), key);
+            comparison = compare(current.getKey(), key);
             if(comparison == 0){break;}
             else if(comparison == 1) {index *= 2;}
             else if(comparison == -1) {index = index * 2 + 1;}
@@ -49,12 +49,12 @@ public class MaxHeap<K, V> {
         return toReturn;
     }
     // because i don't want to write "comparator.compare() every time"
-    // private int compare(K entry1, K entry2){
-    //     return comparator.compare(entry1, entry2);
-    // }
-    // private int compare(HeapEntry<K,V> entry1, HeapEntry<K,V> entry2){
-    //     return comparator.compare(entry1, entry2);
-    // }
+    private int compare(K entry1, K entry2){
+        return comparator.compare(entry1, entry2);
+    }
+    private int compare(HeapEntry<K,V> entry1, HeapEntry<K,V> entry2){
+        return comparator.compare(entry1.getKey(), entry2.getKey());
+    }
     // this refactor is intended to fix a branch that might be broken
     private void refactor(int index){
         int leftIndex = index*2;

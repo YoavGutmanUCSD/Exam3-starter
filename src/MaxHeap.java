@@ -96,6 +96,9 @@ public class MaxHeap<K, V> {
         System.out.format("Refactor iteration running on index %s, using object with values (%s, %s)", index, relocateTarget.getKey(), relocateTarget.getValue());
         int leftIndex = index*2;
         int rightIndex = leftIndex+1;
+        if(leftIndex >= entries.size() || rightIndex >= entries.size()) {
+            entries.add(relocateTarget);
+        }
         HeapEntry<K,V> leftEntry = entries.get(leftIndex);
         HeapEntry<K,V> rightEntry = entries.get(rightIndex);
         int compareLeft = compare(relocateTarget, leftEntry);
@@ -109,9 +112,6 @@ public class MaxHeap<K, V> {
             HeapEntry<K,V> nextRelocateTarget = this.entries.get(rightIndex);
             this.entries.get(index);
             refactor(rightIndex, nextRelocateTarget);
-        }
-        if(leftIndex >= entries.size() || rightIndex >= entries.size()) {
-            entries.add(relocateTarget);
         }
     }
     private boolean swap(int start, int end){

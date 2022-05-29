@@ -90,17 +90,14 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         return (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
     }
 
-    private void expandCapacity(){
+    private void expandCapacity() throws Exception{
         if(size != capacity) {
             return;
         }
         this.capacity *= 2;
         T[] newArrayList = (T[]) new Object[capacity];
-        for(int i = this.front; i < arrayList.length; i++){
-            newArrayList[i] = arrayList[i];
-        }
-        for(int i = 0; i <= this.rear; i++){
-            newArrayList[i] = arrayList[i];
+        for(int i = 0; i < this.size; i++){
+            newArrayList[i] = get(i);
         }
         // for(){
         //     newArrayList[i] = arrayList[i];

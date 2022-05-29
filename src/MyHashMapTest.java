@@ -26,7 +26,8 @@ public class MyHashMapTest {
         testHeap.add("a", 5);
         testHeap.add("b", 7);
         testHeap.add("c", 1);
-        testHeap.sanityCheck();
+        assertEquals("b", testHeap.remove().getKey());
+        // testHeap.sanityCheck();
         // assertEquals("[c, b, a]", testHeap.toString());
     }
 
@@ -36,7 +37,8 @@ public class MyHashMapTest {
         testHeap.add("a", 5);
         testHeap.add("c", 1);
         // assertEquals("[c, b, a]", testHeap.toString());
-        testHeap.sanityCheck();
+        assertEquals("b", testHeap.remove().getKey());
+        // testHeap.sanityCheck();
     }
 
     @Test
@@ -49,7 +51,8 @@ public class MyHashMapTest {
         testHeap.add("f", 5);
         testHeap.add("e", 5);
         testHeap.add("g", 5);
-        testHeap.sanityCheck();
+        assertEquals("b", testHeap.remove().getKey());
+        // testHeap.sanityCheck();
         // assertEquals("[g, f, asetd, e, a, b, c, d]", testHeap.toString());
     }
     @Test
@@ -62,7 +65,8 @@ public class MyHashMapTest {
         testHeap.add("f", 5);
         testHeap.add("e", 5);
         testHeap.add("g", 5);
-        assertTrue(testHeap.sanityCheck());
+        assertEquals("b", testHeap.remove().getKey());
+        // assertTrue(testHeap.sanityCheck());
         // assertEquals("[z, g, e, f, b, c, d]", testHeap.toString());
     }
     @Test
@@ -77,7 +81,7 @@ public class MyHashMapTest {
         testHeap.add("g", 5);
         HeapEntry<String,Integer> removed = testHeap.remove();
         System.out.println(testHeap.toString());
-        assertTrue(testHeap.sanityCheck());
+        // assertTrue(testHeap.sanityCheck());
         assertEquals(removed.getKey(), "b");
     }
     //Write testcase for checking max score of 2 sections

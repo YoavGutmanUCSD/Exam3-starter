@@ -140,17 +140,17 @@ public class MaxHeap<K, V> {
         return true;
     }
 
-    public String toString(){
-        String toReturn = "[";
-        for(int i = 1; i < this.entries.size()-1; i++){
-            toReturn += String.format("%s, ", this.entries.get(i).getKey());
-        }
-        toReturn += String.format("%s]", this.entries.get(this.entries.size()-1).getKey());
-        return toReturn;
-    }
-    public boolean sanityCheck(){
-        return sane(1);
-    }
+    // public String toString(){
+    //     String toReturn = "[";
+    //     for(int i = 1; i < this.entries.size()-1; i++){
+    //         toReturn += String.format("%s, ", this.entries.get(i).getKey());
+    //     }
+    //     toReturn += String.format("%s]", this.entries.get(this.entries.size()-1).getKey());
+    //     return toReturn;
+    // }
+    // public boolean sanityCheck(){
+    //     return sane(1);
+    // }
     private boolean sane(int index){
         if(index * 2 >= entries.size()){
             return true;

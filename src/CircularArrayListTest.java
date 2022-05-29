@@ -7,8 +7,7 @@ public class CircularArrayListTest {
     @Test
     public void test_baseCase() throws Exception {
 
-        // ArrayListADT<Integer> cal = new CircularArrayList<Integer> (10);
-        CircularArrayList<Integer> cal = new CircularArrayList<Integer> (10);
+        ArrayListADT<Integer> cal = new CircularArrayList<Integer> (10);
         //Complete testcase to check elements at few positions
         cal.addFront(7);
         cal.addFront(7);
@@ -26,7 +25,7 @@ public class CircularArrayListTest {
     }
     @Test
     public void test_Remove() throws Exception {
-        CircularArrayList<Integer> cal = new CircularArrayList<Integer> (10);
+        ArrayListADT<Integer> cal = new CircularArrayList<Integer> (10);
         //Complete testcase to check elements at few positions
         cal.addFront(7);
         cal.addFront(7);
@@ -41,7 +40,7 @@ public class CircularArrayListTest {
     }
     @Test
     public void test_expandCapacity() throws Exception {
-        CircularArrayList<Integer> cal = new CircularArrayList<Integer> (10);
+        ArrayListADT<Integer> cal = new CircularArrayList<Integer> (10);
         //Complete testcase to check elements at few positions
         cal.addFront(7);
         cal.addFront(7);
@@ -58,7 +57,7 @@ public class CircularArrayListTest {
         // assertEquals("[70, 7, 7, 7, 8, 8, 8, 78, 8, 8, 9]", cal.asString());
         assertEquals("[70, 7, 7, 7, 8, 8, 8, 78, 8, 8, 9]", asString(cal));
     }
-    private String asString(CircularArrayList calminte) throws Exception {
+    private String asString(ArrayListADT calminte) throws Exception {
         String toReturn = "[";
         for(int i = 0; i < calminte.getSize()-1; i++){
             toReturn += String.format("%s, ", calminte.get(i));

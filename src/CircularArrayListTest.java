@@ -54,6 +54,16 @@ public class CircularArrayListTest {
         cal.addRear(8);
         cal.addRear(8);
         cal.addRear(9);
-        assertEquals("[70, 7, 7, 7, 8, 8, 8, 78, 8, 8, 9]", cal.asString());
+
+        // assertEquals("[70, 7, 7, 7, 8, 8, 8, 78, 8, 8, 9]", cal.asString());
+        assertEquals("[70, 7, 7, 7, 8, 8, 8, 78, 8, 8, 9]", asString(cal));
+    }
+    private String asString(CircularArrayList calminte) throws Exception {
+        String toReturn = "[";
+        for(int i = 0; i < calminte.getSize()-1; i++){
+            toReturn += String.format("%s, ", calminte.get(i));
+        }
+        toReturn += String.format("%s]", calminte.get(calminte.getSize()-1));
+        return toReturn;
     }
 }

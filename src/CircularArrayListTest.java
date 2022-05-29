@@ -24,6 +24,7 @@ public class CircularArrayListTest {
         // System.out.println(cal.asString());
         assertEquals(cal.get(diff), (Integer) 77);
     }
+    @Test
     public void test_Remove() throws Exception {
         CircularArrayList<Integer> cal = new CircularArrayList<Integer> (10);
         //Complete testcase to check elements at few positions

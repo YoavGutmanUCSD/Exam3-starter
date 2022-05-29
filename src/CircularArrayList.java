@@ -111,10 +111,11 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         T[] oldArrayList = this.arrayList;
         for(int i = this.front; i < oldArrayList.length; i++){
             int newIndex = i - oldArrayList.length + newArrayList.length;
-            System.out.format("Old index: %s. New index: %s.\n", i, newIndex);
+            // System.out.format("Old index: %s. New index: %s.\n", i, newIndex);
             newArrayList[newIndex] = oldArrayList[i];
         }
         for(int i = 0; i <= this.rear; i++){
+            System.out.format("This for loop visited %s.\n", i);
             newArrayList[i] = oldArrayList[i];
         }
         System.out.println();

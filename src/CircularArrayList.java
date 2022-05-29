@@ -29,16 +29,16 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             System.out.println("Cannot expand capacity. Your instance is likely broken.");
             return;
         }
-        if(test){
-            System.out.println("expandCapacity just ran.");
-        }
         // System.out.println(element);
         if(this.size == 0){
             this.arrayList[this.rear] = element;
         }
         else {
             this.rear = offset(rear, +1);
-            System.out.format("Rear is %s\n", this.rear);
+            if(test){
+                System.out.format("Rear is %s. Local value is %s\n", this.rear, this.arrayList[this.rear]);
+
+            }
             this.arrayList[this.rear] = element;
         }
         size++;

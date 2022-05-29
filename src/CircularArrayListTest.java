@@ -4,7 +4,7 @@ import org.junit.*;
 public class CircularArrayListTest {
 
 
-    @Test
+    // @Test
     public void test_baseCase() throws Exception {
 
         // ArrayListADT<Integer> cal = new CircularArrayList<Integer> (10);

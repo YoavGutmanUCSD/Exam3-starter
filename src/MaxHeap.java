@@ -25,7 +25,7 @@ public class MaxHeap<K, V> {
             return;
         }
         int comparison = compare(entries.get(1), current);
-        if(comparison < 0){
+        if(comparison <= 0){
             temp = entries.get(1);
             entries.set(1, current);
             refactor(1, temp);

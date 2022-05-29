@@ -48,11 +48,11 @@ public class MaxHeap<K, V> {
         return toReturn;
     }
     // because i don't want to write "comparator.compare() every time"
-    private int compare(K entry1, K entry2){
-        return comparator.compare(entry1, entry2);
-    }
+    // private int compare(K entry1, K entry2){
+    //     return comparator.compare(entry1, entry2);
+    // }
     private int compare(HeapEntry<K,V> entry1, HeapEntry<K,V> entry2){
-        return comparator.compare(entry1.getKey(), entry2.getKey());
+        return comparator.compare(entry1.getValue(), entry2.getValue());
     }
     // this refactor is intended to fix a branch that might be broken
     private void refactor(int index){

@@ -92,11 +92,11 @@ public class MyHashMapTest {
 	
 }
 
-class TestComp implements Comparator<String> {
+class TestComp implements Comparator<Integer> {
     @Override
-    public int compare(String e, String f){
-        // String key1 = (String) e.getKey();
-        // String key2 = (String) f.getKey();
+    public int compare(Integer e, Integer f){
+        // Integer key1 = (Integer) e.getKey();
+        // Integer key2 = (Integer) f.getKey();
         // System.out.format("Difference between %s and %s is %s\n", e, f, e.compareTo(f));
         return e.compareTo(f);
     }

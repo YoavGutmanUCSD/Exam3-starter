@@ -116,6 +116,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         for(int i = 0; i <= this.rear; i++){
             newArrayList[i] = oldArrayList[i];
         }
+        this.front = this.front + capacity/2;
         this.arrayList = newArrayList;
     }
 

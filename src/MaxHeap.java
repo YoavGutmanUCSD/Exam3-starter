@@ -158,12 +158,12 @@ public class MaxHeap<K, V> {
         if(index * 2 + 1 >= entries.size()){
             HeapEntry<K,V> curr = entries.get(index);
             HeapEntry<K,V> left = entries.get(index*2);
-            return compare(curr, left) > 0;
+            return compare(curr, left) >= 0;
         }
         HeapEntry<K,V> curr = entries.get(index);
         HeapEntry<K,V> left = entries.get(index*2);
         HeapEntry<K,V> right = entries.get(index*2+1);
-        return compare(curr, left) > 0 & compare(curr, right) > 0 & sane(index*2) & sane(index*2+1);
+        return compare(curr, left) >= 0 & compare(curr, right) >= 0 & sane(index*2) & sane(index*2+1);
     }
 }
 

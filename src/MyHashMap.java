@@ -1,6 +1,6 @@
 import java.util.List;
 import java.util.Objects;
-import java.lang.Math;
+// import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -101,7 +101,9 @@ public class MyHashMap<K, V> implements DefaultMap<K, V> {
         // if(key == null){
         //     return false;
         // }
-        return Math.abs(Objects.hashCode(key)) % capacity;
+        int hashCode = Objects.hashCode(key);
+        if(hashCode < 0) hashCode = hashCode * -1;
+        return hashCode % capacity;
     }
 
     protected static class HashMapEntry<K, V> implements DefaultMap.Entry<K, V> {

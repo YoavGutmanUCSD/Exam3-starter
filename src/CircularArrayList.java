@@ -59,7 +59,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     public T remove() {
         T toReturn = this.arrayList[front];
         this.arrayList[front] = null;
-        this.front = offset(front, +1);
+        this.front--;
         return toReturn;
     }
     public int getSize(){
@@ -84,6 +84,8 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     }
 
     private int offset(int startIndex, int offsetAmount){
+        int toReturn = (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
+        System.out.format("Offset gives %s from %s and %s", toReturn, startIndex, offsetAmount);
         return (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
     }
 

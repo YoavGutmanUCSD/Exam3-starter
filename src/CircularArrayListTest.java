@@ -18,7 +18,7 @@ public class CircularArrayListTest {
         cal.addRear(7);
         cal.addRear(77);
         assertEquals(cal.get(0), (Integer) 70);
-        int diff = cal.getRear() + cal.getSize() - 1 - cal.getFront();
+        int diff = cal.getRear() + cal.getSize() - cal.getFront();
         System.out.format("front:%s\nrear:%s\ndiff:%s\n", cal.getFront(), cal.getRear(), cal.getFront());
         assertEquals(cal.get(cal.getRear()), (Integer) 77);
 

@@ -37,10 +37,8 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             this.arrayList[this.rear] = element;
         }
         else {
-            if(arrayList[this.rear].equals((Integer) 9)){
-                System.out.println("The die is cast.");
-            }
             this.rear = offset(rear, +1);
+            System.out.format("Rear is %s", this.rear)
             this.arrayList[this.rear] = element;
         }
         size++;

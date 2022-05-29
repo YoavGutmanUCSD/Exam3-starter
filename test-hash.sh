@@ -19,8 +19,3 @@ java -cp $classpath org.junit.runner.JUnitCore MyHashMapTest
 # javac -cp ${classpath} -d classes/ src/MyHashMap.java
 # javac -cp ${classpath} -d classes/ src/MyHashMapTest.java
 # javac -cp ${classpath} -d classes/ src/Student.java
-
-
-# javac -cp ${classpath} -d classes/ src/ArrayListADT.java
-# javac -cp ${classpath} -d classes/ src/CircularArrayList.java
-# javac -cp ${classpath} -d classes/ src/CircularArrayListTest.java

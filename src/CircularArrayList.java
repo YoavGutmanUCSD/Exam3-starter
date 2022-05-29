@@ -28,8 +28,8 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         }
         else {
             this.rear = offset(rear, +1);
-            System.out.println(rear);
             this.arrayList[this.rear] = element;
+            System.out.println(this.arrayList[this.rear]);
         }
         size++;
     }

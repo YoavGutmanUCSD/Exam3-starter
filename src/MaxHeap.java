@@ -59,18 +59,34 @@ public class MaxHeap<K, V> {
         // System.out.format("Refactor iteration running on index %s", index);
         int leftIndex = index*2;
         int rightIndex = leftIndex+1;
-        HeapEntry<K, V> leftEntry = entries.get(leftIndex);
-        HeapEntry<K, V> rightEntry = entries.get(rightIndex);
+        HeapEntry<K, V> leftEntry;
+        HeapEntry<K, V> rightEntry;
         HeapEntry<K, V> current = this.entries.get(index);
-        int compareLeft = compare(current, leftEntry);
-        int compareRight = compare(current, rightEntry);
-        if(compareLeft < 0){
-            swap(leftIndex, index);
-            refactor(leftIndex);
+        int compareLeft;
+        int compareRight;
+        if(leftIndex >= this.entries.size()) return;
+        if(rightIndex >= this.entries.size()) {
+            leftEntry = entries.get(leftIndex);
+            compareLeft = compare(current, leftEntry);
+            if(compareLeft < 0){
+                swap(leftIndex, index);
+                refactor(leftIndex);
+            }
         }
-        else if(compareRight < 0) {
-            swap(rightIndex, index);
-            refactor(rightIndex);
+        else {
+            leftEntry = entries.get(leftIndex);
+            rightEntry = entries.get(rightIndex);
+            current = this.entries.get(index);
+            compareLeft = compare(current, leftEntry);
+            compareRight = compare(current, rightEntry);
+            if(compareLeft < 0){
+                swap(leftIndex, index);
+                refactor(leftIndex);
+            }
+            else if(compareRight < 0) {
+                swap(rightIndex, index);
+                refactor(rightIndex);
+            }
         }
     }
     // this version of refactor is intended to insert a value

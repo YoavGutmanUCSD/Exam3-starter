@@ -99,10 +99,10 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     }
     public String asString() throws Exception {
         String toReturn = "[";
-        for(int i = 0; i < this.size-2; i++){
+        for(int i = 0; i < this.size-1; i++){
             toReturn += String.format("%s, ", get(i));
         }
-        toReturn += String.format("%s]", get(this.size-1));
+        toReturn += String.format("%s]", get(this.size));
         return toReturn;
     }
 

@@ -30,6 +30,9 @@ public class MyHashMap<K, V> implements DefaultMap<K, V> {
     @SuppressWarnings("unchecked")
     public MyHashMap(int initialCapacity, Comparator myComparator)
         throws IllegalArgumentException {
+        if(initialCapacity < 0){
+            throw new IllegalArgumentException(ILLEGAL_ARG_CAPACITY);
+        }
         this.capacity = initialCapacity; 
         this.size = 0;
         this.sections = new Character[initialCapacity];

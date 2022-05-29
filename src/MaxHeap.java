@@ -25,7 +25,7 @@ public class MaxHeap<K, V> {
             return;
         }
         int comparison = compare(entries.get(1), current);
-        if(comparison <= 0){
+        if(comparison < 0){
             temp = entries.get(1);
             entries.set(1, current);
             refactor(1, temp);
@@ -126,6 +126,9 @@ public class MaxHeap<K, V> {
             HeapEntry<K,V> newRelocateTarget = entries.get(index);
             entries.set(index, relocateTarget);
             return newRelocateTarget;
+        }
+        if(comparison == 0){
+            return relocateTarget;
         }
         return null;
     }

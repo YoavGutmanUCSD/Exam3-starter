@@ -35,11 +35,15 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         }
         else {
             this.rear = offset(rear, +1);
-            if(test){
-                System.out.format("Rear is %s. Local value is %s\n", this.rear, this.arrayList[this.rear]);
+            // System.out.format("Rear is %s. Local value is %s\n", this.rear, this.arrayList[this.rear]);
 
-            }
             this.arrayList[this.rear] = element;
+            if(test){
+                System.out.println("New arrayList");
+                for(int i = 0; i < arrayList.length; i++){
+                    System.out.format("%s, ", arrayList[i]);
+                }
+            }
         }
         size++;
     }
@@ -125,14 +129,10 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             System.out.format("This for loop visited %s.\n", i);
             newArrayList[i] = oldArrayList[i];
         }
-        System.out.println("New arrayList");
-        for(int i = 0; i < newArrayList.length; i++){
-            System.out.format("%s, ", newArrayList[i]);
-        }
-        System.out.println("Old arrayList");
-        for(int i = 0; i < oldArrayList.length; i++){
-            System.out.format("%s, ", oldArrayList[i]);
-        }
+        // System.out.println("Old arrayList");
+        // for(int i = 0; i < oldArrayList.length; i++){
+        //     System.out.format("%s, ", oldArrayList[i]);
+        // }
         this.front = this.front + capacity/2;
         this.arrayList = newArrayList;
         return true;

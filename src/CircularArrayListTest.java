@@ -22,7 +22,7 @@ public class CircularArrayListTest {
         int diff = cal.getRear() + cal.getSize() - cal.getFront();
         System.out.format("front:%s\nrear:%s\ndiff:%s\n", cal.getFront(), cal.getRear(), cal.getFront());
         System.out.println(cal.asString());
-        assertEquals(cal.get(cal.getRear()), (Integer) 77);
+        assertEquals(cal.get(7), (Integer) 77);
 
     }
 }

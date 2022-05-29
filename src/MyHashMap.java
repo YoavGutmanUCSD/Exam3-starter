@@ -35,6 +35,9 @@ public class MyHashMap<K, V> implements DefaultMap<K, V> {
         this.sections = new Character[initialCapacity];
         this.buckets = new ArrayList<MaxHeap<K,V>>(initialCapacity);
         this.myComparator = myComparator;
+        for(int i = 0; i < this.capacity; i++){
+            buckets.add(null);
+        }
         //constrcutor for the hashMap
     }
 

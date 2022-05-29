@@ -101,8 +101,8 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     public String asString() throws Exception {
         String toReturn = "[";
         for(int i = 0; i < this.size-1; i++){
-            // toReturn += String.format("%s, ", get(i));
-            System.out.println(toReturn);
+            toReturn += String.format("%s, ", get(i));
+            // System.out.println(toReturn);
         }
         // toReturn += String.format("%s]", get(this.size-1));
         System.out.println(toReturn);

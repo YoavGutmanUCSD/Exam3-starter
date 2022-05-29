@@ -110,8 +110,8 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         T[] newArrayList = (T[]) new Object[capacity];
         T[] oldArrayList = this.arrayList;
         for(int i = this.front; i < oldArrayList.length; i++){
-            int newIndex = this.front - oldArrayList.length + newArrayList.length;
-            System.out.format("Old index: %s. New index: %s.", i, newIndex);
+            int newIndex = i - oldArrayList.length + newArrayList.length;
+            System.out.format("Old index: %s. New index: %s.\n", i, newIndex);
             newArrayList[newIndex] = oldArrayList[i];
         }
         for(int i = 0; i <= this.rear; i++){

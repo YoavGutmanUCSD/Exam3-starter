@@ -35,9 +35,9 @@ public class FileReader {
 	}
 }
 
-class GradeCompare implements Comparator<Integer> {
+class GradeCompare implements Comparator<Student> {
     @Override
-    public int compare(Integer x, Integer y){
-        return x - y;
+    public int compare(Student x, Student y){
+        return (int) x.marks - (int) y.marks;
     }
 }

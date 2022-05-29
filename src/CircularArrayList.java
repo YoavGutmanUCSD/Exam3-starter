@@ -60,6 +60,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         T toReturn = this.arrayList[front];
         this.arrayList[front] = null;
         this.front--;
+        this.size--;
         return toReturn;
     }
     public int getSize(){

@@ -104,7 +104,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             toReturn += String.format("%s, ", get(i));
             System.out.println(toReturn);
         }
-        toReturn += String.format("%s]", get(this.size));
+        toReturn += String.format("%s]", get(this.size-1));
         System.out.println(toReturn);
         return toReturn;
     }

@@ -43,6 +43,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
                 for(int i = 0; i < arrayList.length; i++){
                     System.out.format("%s, ", arrayList[i]);
                 }
+                System.out.println();
             }
         }
         size++;

@@ -22,7 +22,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     public void addRear(T element) {
         //Method to add element at the rear of the arraylist
         expandCapacity();
-        System.out.println(element);
+        // System.out.println(element);
         if(this.size == 0){
             this.arrayList[this.rear] = element;
         }

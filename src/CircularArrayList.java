@@ -73,14 +73,14 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     public int getCapacity(){
         return this.capacity;
     }
-    // public String toString() throws Exception {
-    //     String toReturn = "[";
-    //     for(int i = 0; i < this.size-2; i++){
-    //         toReturn += String.format("%s, ", get(i));
-    //     }
-    //     toReturn += String.format("%s]", get(this.size-1));
-    //     return toReturn;
-    // }
+    public String asString() throws Exception {
+        String toReturn = "[";
+        for(int i = 0; i < this.size-2; i++){
+            toReturn += String.format("%s, ", get(i));
+        }
+        toReturn += String.format("%s]", get(this.size-1));
+        return toReturn;
+    }
 
     private int offset(int startIndex, int offsetAmount){
         return (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;

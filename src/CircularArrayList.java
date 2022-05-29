@@ -14,7 +14,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         this.size = 0;
         this.capacity = initialCapacity;
         this.front = 0;
-        this.rear = capacity-1;
+        this.rear = 0;
         this.arrayList = (T[]) new Object[capacity];
     }
 
@@ -29,7 +29,6 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         else {
             this.rear = offset(rear, +1);
             this.arrayList[this.rear] = element;
-            System.out.format("%s at index %s", this.arrayList[this.rear], this.rear);
         }
         size++;
     }

@@ -60,7 +60,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         }
         size++;
     }
-
+    @Override
     public T get(int index) throws Exception {
         //Method to get element at a given index of the circularArrayList
         // offset() should accomplish what is necessary here, though it's really REALLY weird.
@@ -77,15 +77,19 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         this.size--;
         return toReturn;
     }
+    @Override
     public int getSize(){
         return this.size;
     }
+    @Override
     public int getRear(){
         return this.rear;
     }
+    @Override
     public int getFront(){
         return this.front;
     }
+    @Override
     public int getCapacity(){
         return this.capacity;
     }

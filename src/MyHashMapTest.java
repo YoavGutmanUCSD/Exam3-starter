@@ -92,6 +92,7 @@ public class MyHashMapTest {
         Student maxInSectionB = new Student("Ria", 'B', 88);
         Student grepMaxA = filereader.getMaxOfSection('A');
         Student grepMaxB = filereader.getMaxOfSection('B');
+        System.out.println("How've ya been, buddy?");
         assertEquals(toString(maxInSectionA), toString(grepMaxA));
         assertEquals(toString(maxInSectionB), toString(grepMaxB));
     }

@@ -39,4 +39,24 @@ public class CircularArrayListTest {
         assertEquals(cal.remove(), (Integer) 70);
         assertEquals(cal.get(0), (Integer) 7);
     }
+    @Test
+    public void test_expandCapacity() throws Exception {
+        CircularArrayList<Integer> cal = new CircularArrayList<Integer> (10);
+        //Complete testcase to check elements at few positions
+        cal.addFront(7);
+        cal.addFront(7);
+        cal.addFront(7);
+        cal.addFront(70);
+        cal.addRear(8);
+        cal.addRear(8);
+        cal.addRear(8);
+        cal.addRear(78);
+        cal.addRear(8);
+        cal.addRear(8);
+        cal.addRear(8);
+        cal.addRear(8);
+        cal.addRear(8);
+        cal.addRear(8);
+        assertEquals("[70, 7, 7, 7, 8, 8, 8, 78, 8, 8, 8, 8, 8, 8]", cal.asString());
+    }
 }

@@ -108,9 +108,9 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         }
         this.capacity *= 2;
         T[] newArrayList = (T[]) new Object[capacity];
-        for(int i = 0; i < this.size; i++){
-            System.out.format("Adding value %s at index %s\n", get(i), i);
-            newArrayList[i] = get(i);
+        for(int i = this.front; i < this.rear + capacity/2; i++){
+            System.out.format("Adding value %s at index %s\n", get(i), i % capacity);
+            newArrayList[i % capacity] = get(i);
         }
         // for(){
         //     newArrayList[i] = arrayList[i];

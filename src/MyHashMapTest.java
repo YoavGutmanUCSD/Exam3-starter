@@ -62,7 +62,8 @@ public class MyHashMapTest {
         testHeap.add("f", 5);
         testHeap.add("e", 5);
         testHeap.add("g", 5);
-        assertEquals("[z, g, e, f, b, c, d]", testHeap.toString());
+        assertTrue(testHeap.sanityCheck());
+        // assertEquals("[z, g, e, f, b, c, d]", testHeap.toString());
     }
     @Test
     public void testRemoveHeapMaximumMiddle(){

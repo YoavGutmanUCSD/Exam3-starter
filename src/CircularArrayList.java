@@ -38,12 +38,12 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             // System.out.format("Rear is %s. Local value is %s\n", this.rear, this.arrayList[this.rear]);
 
             this.arrayList[this.rear] = element;
-            if(test){
-                System.out.println("New arrayList");
-                for(int i = 0; i < arrayList.length; i++){
-                    System.out.format("%s, ", arrayList[i]);
-                }
-            }
+            // if(test){
+            //     System.out.println("New arrayList");
+            //     for(int i = 0; i < arrayList.length; i++){
+            //         System.out.format("%s, ", arrayList[i]);
+            //     }
+            // }
         }
         size++;
     }
@@ -104,6 +104,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             System.out.println(toReturn);
         }
         toReturn += String.format("%s]", get(this.size));
+        System.out.println(toReturn);
         return toReturn;
     }
 
@@ -126,10 +127,10 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             newArrayList[newIndex] = oldArrayList[i];
         }
         // System.out.println(this.rear);
-        for(int i = 0; i <= this.rear; i++){
-            System.out.format("This for loop visited %s.\n", i);
-            newArrayList[i] = oldArrayList[i];
-        }
+        // for(int i = 0; i <= this.rear; i++){
+        //     System.out.format("This for loop visited %s.\n", i);
+        //     newArrayList[i] = oldArrayList[i];
+        // }
         // System.out.println("Old arrayList");
         // for(int i = 0; i < oldArrayList.length; i++){
         //     System.out.format("%s, ", oldArrayList[i]);

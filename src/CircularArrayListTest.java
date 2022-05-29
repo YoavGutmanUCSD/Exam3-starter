@@ -54,9 +54,6 @@ public class CircularArrayListTest {
         cal.addRear(8);
         cal.addRear(8);
         cal.addRear(8);
-        cal.addRear(8);
-        cal.addRear(8);
-        cal.addRear(8);
-        assertEquals("[70, 7, 7, 7, 8, 8, 8, 78, 8, 8, 8, 8, 8, 8]", cal.asString());
+        assertEquals("[70, 7, 7, 7, 8, 8, 8, 78, 8, 8, 8]", cal.asString());
     }
 }

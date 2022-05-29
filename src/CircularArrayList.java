@@ -97,7 +97,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     }
 
     private int offset(int startIndex, int offsetAmount){
-        int toReturn = (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
+        // int toReturn = (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
         // System.out.format("Offset gives %s from %s and %s\n", toReturn, startIndex, offsetAmount);
         return (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
     }
@@ -115,7 +115,8 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             newArrayList[newIndex] = oldArrayList[i];
         }
         System.out.println(this.rear);
-        for(int i = 0; i <= this.rear; i++){
+        // rear starts at 1, 0 index is sort of neutral i think
+        for(int i = 0; i <= this.rear + 1; i++){
             System.out.format("This for loop visited %s.\n", i);
             newArrayList[i] = oldArrayList[i];
         }

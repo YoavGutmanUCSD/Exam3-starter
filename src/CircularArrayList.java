@@ -22,6 +22,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     public void addRear(T element) {
         //Method to add element at the rear of the arraylist
         expandCapacity();
+        System.out.println(element);
         if(this.size == 0){
             this.arrayList[this.rear] = element;
         }
@@ -84,7 +85,6 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     }
 
     private int offset(int startIndex, int offsetAmount){
-        System.out.format("Offset amount is %s\n", offsetAmount);
         int toReturn = (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
         System.out.format("Offset gives %s from %s and %s\n", toReturn, startIndex, offsetAmount);
         return (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;

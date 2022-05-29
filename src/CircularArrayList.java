@@ -21,19 +21,23 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     @Override
     public void addRear(T element) {
         //Method to add element at the rear of the arraylist
+        boolean test;
         try{
-            expandCapacity();
+            test = expandCapacity();
         }
         catch (Exception e) {
             System.out.println("Cannot expand capacity. Your instance is likely broken.");
             return;
+        }
+        if(test){
+            System.out.println("expandCapacity just ran.");
         }
         // System.out.println(element);
         if(this.size == 0){
             this.arrayList[this.rear] = element;
         }
         else {
-            if(arrayList[this.rear] == (Integer) 9){
+            if(arrayList[this.rear].equals((Integer) 9)){
                 System.out.println("The die is cast.");
             }
             this.rear = offset(rear, +1);
@@ -52,6 +56,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             System.out.println("Cannot expand capacity. Your instance is likely broken.");
             return;
         }
+
         if(this.size == 0){
             this.arrayList[this.front] = element;
         }
@@ -105,9 +110,9 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         return (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
     }
 
-    private void expandCapacity() throws Exception{
+    private boolean expandCapacity() throws Exception{
         if(size != capacity) {
-            return;
+            return false;
         }
         this.capacity *= 2;
         T[] newArrayList = (T[]) new Object[capacity];
@@ -133,6 +138,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         }
         this.front = this.front + capacity/2;
         this.arrayList = newArrayList;
+        return true;
     }
 
 }

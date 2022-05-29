@@ -11,17 +11,33 @@ public class FileReader {
 	DefaultMap<Character, Student> hashMap;
 	
 	public FileReader(String name) {
-		// Constructor for the filereader
+            this.filename = name;
+            this.comparator = new GradeCompare();
+            this.hashMap = new MyHashMap(3, this.comparator);
 	}
 	
-	public void createHeap() {
-        //Method to read input.txt using FileInputStream and putting the student entries to the hashMap
+	public void createHeap() throws FileNotFoundException {
+            Scanner scan = new Scanner(new FileInputStream(this.filename));
+            String[] lineInfo;
+            Student currentStudent;
+            while(scan.hasNextLine()){
+                lineInfo = scan.nextLine().trim().split(",");
+                String studentName = lineInfo[0];
+                char studentSection = lineInfo[1].charAt(0);
+                double studentMarks = Double.valueOf(lineInfo[2]);
+                currentStudent = new Student(studentName, studentSection, studentMarks);
+                hashMap.put(studentSection, currentStudent);
+            }
 	}
 	
 	public Student getMaxOfSection(char section) {
-		//Method that returns a maximum scoring student's record given the section
+            return this.hashMap.get(section);
 	}
-	
+}
 
-
+class GradeCompare implements Comparator<Integer> {
+    @Override
+    public int compare(Integer x, Integer y){
+        return x - y;
+    }
 }

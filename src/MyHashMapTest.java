@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,18 +10,15 @@ import org.junit.*;
 
 public class MyHashMapTest {
 	
-	// private FileReader filereader;
+	private FileReader filereader;
 	private DefaultMap<Integer, Student> testMap; // use this for basic tests
         private MaxHeap<String, Integer> testHeap;
 
-	// @Before
-	// public void setUp() {
-	// 	filereader = new FileReader("src/input.txt");
-	// }
         @Before
         public void initialize() {
             Comparator comp = new TestComp();
-            testHeap = new MaxHeap<String, Integer>(15, comp);
+            this.testHeap = new MaxHeap<String, Integer>(15, comp);
+            this.filereader = new FileReader("src/input.txt");
         }
 
         @Test
@@ -80,8 +78,12 @@ public class MyHashMapTest {
         }
 	//Write testcase for checking max score of 2 sections
         @Test
-        public void testPutInHashMap(){
-
+        public void testMaxInTwoSections() throws FileNotFoundException{
+            filereader.createHeap();
+            Student maxInSectionA = new Student("James", 'A', new Double(94));
+            Student maxInSectionB = new Student("Ria", 'B', new Double(88));
+            assertEquals(maxInSectionA, filereader.getMaxOfSection('A'));
+            assertEquals(maxInSectionB, filereader.getMaxOfSection('B'));
         }
 
 	

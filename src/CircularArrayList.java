@@ -33,6 +33,9 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             this.arrayList[this.rear] = element;
         }
         else {
+            if(arrayList[this.rear] == (Integer) 9){
+                System.out.println("The die is cast.");
+            }
             this.rear = offset(rear, +1);
             this.arrayList[this.rear] = element;
         }
@@ -116,7 +119,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
         }
         System.out.println(this.rear);
         // rear starts at 1, 0 index is sort of neutral i think
-        for(int i = 0; i <= this.rear + 1; i++){
+        for(int i = 0; i <= this.rear; i++){
             System.out.format("This for loop visited %s.\n", i);
             newArrayList[i] = oldArrayList[i];
         }

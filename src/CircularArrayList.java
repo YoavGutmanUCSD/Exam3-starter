@@ -120,9 +120,13 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             System.out.format("This for loop visited %s.\n", i);
             newArrayList[i] = oldArrayList[i];
         }
-        System.out.println();
+        System.out.println("New arrayList");
         for(int i = 0; i < newArrayList.length; i++){
             System.out.format("%s, ", newArrayList[i]);
+        }
+        System.out.println("Old arrayList");
+        for(int i = 0; i < oldArrayList.length; i++){
+            System.out.format("%s, ", oldArrayList[i]);
         }
         this.front = this.front + capacity/2;
         this.arrayList = newArrayList;

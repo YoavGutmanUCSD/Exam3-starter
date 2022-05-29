@@ -95,9 +95,9 @@ public class MyHashMap<K, V> implements DefaultMap<K, V> {
         return size == 0;
     }
     private int hash(K key){
-        if(key == null){
-            return false;
-        }
+        // if(key == null){
+        //     return false;
+        // }
         return Math.abs(Objects.hashCode(key)) % buckets.size();
     }
 

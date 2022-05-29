@@ -80,8 +80,8 @@ public class MyHashMapTest {
         @Test
         public void testMaxInTwoSections() throws FileNotFoundException{
             filereader.createHeap();
-            Student maxInSectionA = new Student("James", 'A', new Double(94));
-            Student maxInSectionB = new Student("Ria", 'B', new Double(88));
+            Student maxInSectionA = new Student("James", 'A', 94);
+            Student maxInSectionB = new Student("Ria", 'B', 88);
             assertEquals(maxInSectionA, filereader.getMaxOfSection('A'));
             assertEquals(maxInSectionB, filereader.getMaxOfSection('B'));
         }

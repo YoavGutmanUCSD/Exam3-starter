@@ -21,7 +21,13 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     @Override
     public void addRear(T element) {
         //Method to add element at the rear of the arraylist
-        expandCapacity();
+        try{
+            expandCapacity();
+        }
+        catch (Exception e) {
+            System.out.println("Cannot expand capacity. Your instance is likely broken.");
+            return;
+        }
         // System.out.println(element);
         if(this.size == 0){
             this.arrayList[this.rear] = element;
@@ -36,7 +42,13 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     @Override
     public void addFront(T element) {
         //Method to add element at the front of the arraylist i.e. towards start
-        expandCapacity();
+        try{
+            expandCapacity();
+        }
+        catch (Exception e) {
+            System.out.println("Cannot expand capacity. Your instance is likely broken.");
+            return;
+        }
         if(this.size == 0){
             this.arrayList[this.front] = element;
         }

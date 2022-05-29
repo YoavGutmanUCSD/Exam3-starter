@@ -33,7 +33,7 @@ public class MyHashMap<K, V> implements DefaultMap<K, V> {
         this.capacity = initialCapacity; 
         this.size = 0;
         this.sections = new Character[initialCapacity];
-        this.buckets = new ArrayList(initialCapacity);
+        this.buckets = new ArrayList<MaxHeap<K,V>>(initialCapacity);
         this.myComparator = myComparator;
         //constrcutor for the hashMap
     }
@@ -98,7 +98,7 @@ public class MyHashMap<K, V> implements DefaultMap<K, V> {
         // if(key == null){
         //     return false;
         // }
-        return Math.abs(Objects.hashCode(key)) % buckets.size();
+        return Math.abs(Objects.hashCode(key)) % capacity;
     }
 
     protected static class HashMapEntry<K, V> implements DefaultMap.Entry<K, V> {

@@ -12,7 +12,12 @@ public class FileReader {
 	
 	public FileReader(String name) {
             this.filename = name;
-            this.comparator = new GradeCompare();
+            this.comparator = new Comparator<Student>(){
+                @Override
+                public int compare(Student x, Student y){
+                    return (int) x.marks - (int) y.marks;
+                }
+            };
             this.hashMap = new MyHashMap(3, this.comparator);
 	}
 	
@@ -35,9 +40,5 @@ public class FileReader {
 	}
 }
 
-class GradeCompare implements Comparator<Student> {
-    @Override
-    public int compare(Student x, Student y){
-        return (int) x.marks - (int) y.marks;
-    }
-}
+// class GradeCompare implements Comparator<Student> {
+// }

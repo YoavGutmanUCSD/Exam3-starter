@@ -38,13 +38,13 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
             // System.out.format("Rear is %s. Local value is %s\n", this.rear, this.arrayList[this.rear]);
 
             this.arrayList[this.rear] = element;
-            if(test){
-                System.out.println("New arrayList");
-                for(int i = 0; i < arrayList.length; i++){
-                    System.out.format("%s, ", arrayList[i]);
-                }
-                System.out.println();
-            }
+            // if(test){
+            //     System.out.println("New arrayList");
+            //     for(int i = 0; i < arrayList.length; i++){
+            //         System.out.format("%s, ", arrayList[i]);
+            //     }
+            //     System.out.println();
+            // }
         }
         size++;
     }
@@ -101,10 +101,10 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     public String asString() throws Exception {
         String toReturn = "[";
         for(int i = 0; i < this.size-1; i++){
-            toReturn += String.format("%s, ", get(i));
+            // toReturn += String.format("%s, ", get(i));
             System.out.println(toReturn);
         }
-        toReturn += String.format("%s]", get(this.size-1));
+        // toReturn += String.format("%s]", get(this.size-1));
         System.out.println(toReturn);
         return toReturn;
     }

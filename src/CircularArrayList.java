@@ -59,7 +59,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
     public T remove() {
         T toReturn = this.arrayList[front];
         this.arrayList[front] = null;
-        this.front--;
+        this.front++;
         this.size--;
         return toReturn;
     }

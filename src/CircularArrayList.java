@@ -85,7 +85,7 @@ public class CircularArrayList<T> implements ArrayListADT<T>{
 
     private int offset(int startIndex, int offsetAmount){
         int toReturn = (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
-        System.out.format("Offset gives %s from %s and %s\n", toReturn, startIndex, offsetAmount);
+        // System.out.format("Offset gives %s from %s and %s\n", toReturn, startIndex, offsetAmount);
         return (this.arrayList.length + startIndex + offsetAmount) % this.arrayList.length;
     }
 
